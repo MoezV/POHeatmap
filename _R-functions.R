@@ -39,30 +39,27 @@ library(RColorBrewer)
   
   kclust <- function(Data, axis="column", orderPresence=TRUE, colorMode=FALSE, reorderFunction=ReorderFunction, 
                      Title="", K=1, noSplitK=TRUE, noKlabel=TRUE, forceNumeric=FALSE, colScale=NULL,
-                     minColRng=FALSE, maxColRng=FALSE, colRowData=NULL, label_at_top=TRUE, whiteBelowAbsOne=TRUE
+                     minColRng=FALSE, maxColRng=FALSE, colRowData=NULL, label_at_top=TRUE, whiteBelowAbsOne=FALSE
   ){
     if(forceNumeric){
       rName<-rownames(Data)
       Data<-sapply(Data,as.numeric)
       rownames(Data)<-rName
     }
-    
-    origData<-Data
-    if(orderPresence==TRUE){
-            Data[Data>1]<-1;
-      ##Data[Data<1 && Data>-1]<-0;
-      #      Data[Data<-1]<-(-0.5);
-      reOrder<-order(rowSums(Data), decreasing = TRUE)
-      colRowData<-colRowData[reOrder]
-#      colRowData<-NULL
-      Data<-origData[reOrder,]
-    }
-    #    reOrder<-order(rowSums(Data), decreasing = TRUE); Data<-Data[reOrder,]; colRowData<-colRowData[reOrder]
-    # rowSums(Data*2^(1:dim(Data)[2])), 
-    #reOrder<-order(colSums(Data), decreasing = TRUE); Data<-Data[,reOrder];
-    
+
     hc.rows <- hclust(dist(Data)) # transpose the matrix and cluster columns
     hc.cols <- hclust(dist(t(Data)))  # draw heatmap for first cluster
+
+warning(paste("_",hc.cols))
+    origData<-Data
+    if(orderPresence==TRUE){
+      for(i in rev(unlist(hc.cols[3]))){Data<-Data[order(Data[,i], decreasing = TRUE),]} #;colRowData<-colRowData[reOrder]}
+      Data[Data>1]<-1;
+      Data<-Data[order(rowSums(Data),decreasing = TRUE),]
+      Data<-origData[rownames(Data),]
+      colRowData<-colRowData[match(row.names(Data),row.names(origData))] #[order(rowSums(Data),decreasing = TRUE)] #match(rowSums(Data),rowSums(origData))]
+    }
+    
     
     # Setting up the colour range with data set to 1 at the most
     
@@ -210,7 +207,7 @@ logTransform <- function(x,Transformed_0_value_for_log=-Inf,MARGIN=2, Base=logBa
   
   
   # A function to make everything more efficient.
-  analyze<-function(Dataset, DataCols=1:numIsolate,Series="", SeriesCol=min(numIsolate+1, dim(Dataset)[1]), colScale=NULL,
+  analyze<-function(Dataset, DataCols=1:dim(Dataset)[2],Series="", SeriesCol=min(dim(Dataset)[2]+1, dim(Dataset)[1]), colScale=NULL,
                     colorMode=TRUE, rowLabels=NULL, transformData=NULL, showLegend=TRUE, Title="", 
                     clustAxis="column", orderPresence=TRUE, ReorderFunction=sum, Ksplit=1, whiteBelowAbsOne=TRUE,
                     ForceNumeric=FALSE, DEBUG=FALSE ){
@@ -233,9 +230,12 @@ logTransform <- function(x,Transformed_0_value_for_log=-Inf,MARGIN=2, Base=logBa
     if(DEBUG){warning("DEBUG mode");return(data);}
     
     # Setting up the row colours wanted to show
-    rowValues<-rowSums(data > 0)
-    rowColors<-rainbow(nIso+1) 
-    colRowData<-rowColors[rowValues]
+    tmpData<-data
+    tmpData[tmpData>0]<-1
+    rowValues<-rowSums(tmpData)
+    rowColors<-c("white",rainbow(nIso+1))
+    colRowData<-rowColors[rowValues+1]
+#    colRowData[rowSums(tmpData)==0]<-"white"
     names(colRowData)<-ifelse(is.null(rowLabels),rownames(data),rowLabels)
     if(DEBUG){warning("DEBUG mode");return(colRowData);}
     
@@ -250,7 +250,7 @@ logTransform <- function(x,Transformed_0_value_for_log=-Inf,MARGIN=2, Base=logBa
     # A legend for the provided row colours
     if(showLegend==TRUE){
       legend("bottomleft",
-             legend = 1:numIsolate,
+             legend = 1:dim(data)[2],
              col = rowColors, 
              lty= 1, lwd = 2, cex=.8
       )

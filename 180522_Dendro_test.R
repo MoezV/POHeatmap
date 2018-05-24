@@ -14,10 +14,10 @@ if(!exists("kclust", mode="function")) source("../_R-functions.R")
 
 #### Analyze Data ####
 
-#testData.data<-read.delim("FILENAMW.tsv", row.names = 1) # The data is already log10 transformed with an log10(e-value=0) set to -180 (evalue = 1e-180)
-#colnames(testData.data); colnames(testData.data)<-renameSH(colnames(testData.data)); dim(testData.data); colnames(testData.data); 
+#testData<-read.delim("FILENAMW.tsv", row.names = 1) # The data is already log10 transformed with an log10(e-value=0) set to -180 (evalue = 1e-180)
+#colnames(testData); colnames(testData)<-renameSH(colnames(testData)); dim(testData); colnames(testData); 
 
-testData.data<-as.data.frame(rbind(c(0,1,0),c(1,1,0),c(0,1,1),c(1,0,1),c(0,0,0),c(1,1,0))); testData.data
-numIsolate<-dim(testData.data)[2]
-dim(analyze(Dataset = testData.data, Series = "", colorMode=TRUE, transformData=abs, rowLabels=paste(rownames(testData.data), sep="|"), showLegend=FALSE))[1] #, DEBUG = 1)
-as.data.frame(rev(table(rowSums(sapply(testData.data,ifelse,1,0))))); legend("bottomleft", legend = numIsolate:1, col = rev(rainbow(numIsolate+1)[-(numIsolate+1)]), lty= 1, lwd = 2, cex=.8)
+testData<-as.data.frame(rbind(c(1,2,0),c(0,1,0),c(1,1,0),c(0,1,1),c(1,1,0),c(1,0,0),c(0,0,0),c(1,1,1),c(0,1,1))); testData; colSums(testData)
+numIsolate<-dim(testData)[2]
+dim(analyze(Dataset = testData, whiteBelowAbsOne = FALSE, colorMode=TRUE, transformData=abs, rowLabels=paste(rownames(testData), sep="|"), showLegend=FALSE))[1] #, DEBUG = 1)
+as.data.frame(rev(table(rowSums(sapply(testData,ifelse,1,0))))); legend("bottomleft", legend = numIsolate:1, col = rev(rainbow(numIsolate+1)[-(numIsolate+1)]), lty= 1, lwd = 2, cex=.8)
