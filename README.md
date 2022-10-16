@@ -1,4 +1,4 @@
-# occHeatmap_v1
+# Presence-Occurrence Heatmap (POH) version 1
 
 A simple clustered heatmap to display the overall occurence- or presence-based in a visual patterns using the R packages `gplots` and `RColorBrewer`.
 Ensure that `_R-functions.R` is in the parent directory (or remove the '../' path if in the same directory) as `180522_Dendro_test.R` to implement the required functions.
