@@ -16,7 +16,8 @@ The legend is based on the row colouring which represents the intercept/number o
 
 A file `X.tsv` is output containing the ordered sets with two columns: col1 = the ordered position (from 1 to _#rows_), and col2 = the name of the set (rowname)
 
-## analyze() arguments
+# Arguments
+## analyze()
 - The heatmap clusters (using `hclust()`) the occurrences observed
 - Dataset = The data to be displayed
 - DataCols = A vector containing the columns numbers to utilize for displaying the data (default: all the columns)
@@ -36,3 +37,12 @@ A file `X.tsv` is output containing the ordered sets with two columns: col1 = th
 - ForceNumeric = Debugging option, if the data failed to be parsed as being numeric.
 - DEBUG = Debugging option
 
+# Citation
+If you use this script in your project, please cite this repository and note any major modifications (if applicable) that were made.
+
+There are several ways to cite a GitHub repository, which depends on the journals you are submitting to, but most follow a similar trend as the following:
+```
+Valliani, Moez. 2018. Presence-Occurrence Heatmap (POH) version 1. https://github.com/MoezV/occHeatmap_v1. Date accessed: [date you obtained this repo]
+```
+
+It is highly recommended you use a [Referencing Software](https://en.wikipedia.org/wiki/Reference_software) if you are writing a manuscript as it makes the citation process much easier. 
