@@ -47,7 +47,7 @@ If you use this script in your project, please cite this repository and note any
 
 There are several ways to cite a GitHub repository, which depends on the journals you are submitting to, but most follow a similar trend as the following:
 ```
-Valliani, Moez. 2018. Presence-Occurrence Heatmap (POH) version 1. https://github.com/MoezV/POHeatmap. DOI:10.5281/zenodo.8056725. Date accessed: [date you obtained this repo]
+Valliani, Moez. 2018. Presence-Occurrence Heatmap (POHeatmap), version 1.0.0. https://github.com/MoezV/POHeatmap. DOI:10.5281/zenodo.8056725. Date accessed: [date you obtained this repo]
 ```
 
 It is highly recommended you use a [Referencing Software](https://en.wikipedia.org/wiki/Reference_software) if you are writing a manuscript as it makes the citation process much easier. 
