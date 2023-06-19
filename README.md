@@ -1,4 +1,4 @@
-# Presence-Occurrence Heatmap (POH) version 1
+# Presence-Occurrence Heatmap (POHeatmap)
 [![DOI](https://zenodo.org/badge/134431657.svg)](https://zenodo.org/badge/latestdoi/134431657)
 ![Static Badge](https://img.shields.io/badge/Stage-Alpha-red)
 ![Static Badge](https://img.shields.io/badge/Release-1.0.0-f2b400)
