@@ -1,4 +1,5 @@
 # Presence-Occurrence Heatmap (POH) version 1
+[![DOI](https://zenodo.org/badge/134431657.svg)](https://zenodo.org/badge/latestdoi/134431657)
 
 A simple clustered heatmap to display the overall occurence- or presence-based in a visual patterns using the R packages `gplots` and `RColorBrewer`.
 Ensure that `_R-functions.R` is in the parent directory (or remove the '../' path if in the same directory) as `180522_Dendro_test.R` to implement the required functions.
@@ -42,7 +43,7 @@ If you use this script in your project, please cite this repository and note any
 
 There are several ways to cite a GitHub repository, which depends on the journals you are submitting to, but most follow a similar trend as the following:
 ```
-Valliani, Moez. 2018. Presence-Occurrence Heatmap (POH) version 1. https://github.com/MoezV/POHeatmap. Date accessed: [date you obtained this repo]
+Valliani, Moez. 2018. Presence-Occurrence Heatmap (POH) version 1. https://github.com/MoezV/POHeatmap. DOI:10.5281/zenodo.8056725. Date accessed: [date you obtained this repo]
 ```
 
 It is highly recommended you use a [Referencing Software](https://en.wikipedia.org/wiki/Reference_software) if you are writing a manuscript as it makes the citation process much easier. 
