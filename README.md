@@ -1,8 +1,9 @@
 # Presence-Occurrence Heatmap (POH) version 1
 [![DOI](https://zenodo.org/badge/134431657.svg)](https://zenodo.org/badge/latestdoi/134431657)
-![Static Badge](https://img.shields.io/badge/Date-2018–05–22-silver)
-![Static Badge](https://img.shields.io/badge/Release-1.0.0-f2b400)
 ![Static Badge](https://img.shields.io/badge/Stage-Alpha-red)
+![Static Badge](https://img.shields.io/badge/Release-1.0.0-f2b400)
+![Static Badge](https://img.shields.io/badge/Updated-2018–05–22-silver)
+![Static Badge](https://img.shields.io/badge/-R_script-blue?logo=R)
 
 A simple clustered heatmap to display the overall occurence- or presence-based in a visual patterns using the R packages `gplots` and `RColorBrewer`.
 Ensure that `_R-functions.R` is in the parent directory (or remove the '../' path if in the same directory) as `180522_Dendro_test.R` to implement the required functions.
