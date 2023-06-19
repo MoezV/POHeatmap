@@ -4,7 +4,7 @@ authors:
 - family-names: "Valliani"
   given-names: "Moez"
   orcid: "https://orcid.org/0000-0002-5533-2681"
-title: "Presence-Occurrence Heatmap (POH)"
+title: "Presence-Occurrence Heatmap (POHeatmap)"
 version: 1.0.0
 doi: 10.5281/zenodo.8056725
 date-released: 2018-05-22
